@@ -25,7 +25,8 @@ public class HomePage extends javax.swing.JFrame {
         
         this.getContentPane().setBackground(Color.white);
         
-        
+        //test1
+        //hello world
         
         panedefault = new Color(229,207,194);
         paneClick = new Color(249,234,225);
