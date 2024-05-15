@@ -27,6 +27,7 @@ public class HomePage extends javax.swing.JFrame {
         
         //test1
         //hello world
+        //test3
         
         panedefault = new Color(229,207,194);
         paneClick = new Color(249,234,225);
