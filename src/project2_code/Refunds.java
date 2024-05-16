@@ -10,12 +10,12 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author Ishanika
  */
-public class ViewMyTicketsFrame extends javax.swing.JInternalFrame {
+public class Refunds extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ViewMyTicketsFrame
      */
-    public ViewMyTicketsFrame() {
+    public Refunds() {
         initComponents();
         
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
@@ -41,7 +41,7 @@ public class ViewMyTicketsFrame extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Garamond", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(125, 79, 80));
-        jLabel1.setText("View My Tickets");
+        jLabel1.setText("Refunds");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,29 +50,25 @@ public class ViewMyTicketsFrame extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addContainerGap(724, Short.MAX_VALUE))
+                .addContainerGap(803, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addContainerGap(1102, Short.MAX_VALUE))
+                .addContainerGap(628, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
