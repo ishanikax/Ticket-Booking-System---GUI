@@ -4,6 +4,8 @@
  */
 package project2_code;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author Ishanika
@@ -15,6 +17,10 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
      */
     public TicketCalculationFrame() {
         initComponents();
+        
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+        bi.setNorthPane(null);
     }
 
     /**
@@ -30,9 +36,10 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         eventSelector = new javax.swing.JComboBox<>();
-        continuebutton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(540, 480));
+
+        panel1.setBackground(new java.awt.Color(249, 234, 225));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -42,12 +49,10 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Choose your event to make a booking");
 
+        eventSelector.setBackground(new java.awt.Color(170, 153, 143));
         eventSelector.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
-        eventSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        continuebutton1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        continuebutton1.setForeground(new java.awt.Color(0, 0, 0));
-        continuebutton1.setText("continue");
+        eventSelector.setForeground(new java.awt.Color(0, 0, 0));
+        eventSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "The Terrys", "Soul Bossa Duo", "Dylan", "Pink Peppers" }));
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -59,11 +64,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                     .addComponent(eventSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addContainerGap(354, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(continuebutton1)
-                .addGap(47, 47, 47))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,9 +75,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(eventSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
-                .addComponent(continuebutton1)
-                .addGap(28, 28, 28))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,7 +94,6 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton continuebutton1;
     private javax.swing.JComboBox<String> eventSelector;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

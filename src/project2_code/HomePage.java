@@ -364,6 +364,7 @@ public class HomePage extends javax.swing.JFrame {
         HomePageFrame hp = new HomePageFrame();
         jDesktopPane1.add(hp).setVisible(true);
         
+        
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
@@ -376,6 +377,7 @@ public class HomePage extends javax.swing.JFrame {
         jDesktopPane1.removeAll();
         BookingFrame mb= new BookingFrame();
         jDesktopPane1.add(mb).setVisible(true);
+        
     }//GEN-LAST:event_jPanel8MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
