@@ -85,6 +85,9 @@ public class BookingFrame extends javax.swing.JInternalFrame {
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("continue");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton1MousePressed(evt);
             }
@@ -157,6 +160,10 @@ public class BookingFrame extends javax.swing.JInternalFrame {
         TicketCalculationFrame tcf= new TicketCalculationFrame();
         jDesktopPane2.add(tcf).setVisible(true);
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+    }//GEN-LAST:event_jButton1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

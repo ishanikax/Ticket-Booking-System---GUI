@@ -20,6 +20,8 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        
+        
         ImageIcon logoicon = new ImageIcon("TempoTicketsLogoIcon.png");
         this.setIconImage(logoicon.getImage());
         
@@ -37,6 +39,10 @@ public class HomePage extends javax.swing.JFrame {
         
         HomePageFrame hp = new HomePageFrame();
         jDesktopPane1.add(hp).setVisible(true);
+        
+        setResizable(false);
+        
+        
         
     }
 
@@ -301,6 +307,16 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 930, 730));
 
         jPanel4.setBackground(new java.awt.Color(249, 234, 225));
+        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel4MouseDragged(evt);
+            }
+        });
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel4MousePressed(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(125, 79, 80));
         jLabel1.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
@@ -312,9 +328,9 @@ public class HomePage extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
+                .addContainerGap(209, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(164, 164, 164))
+                .addGap(156, 156, 156))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,6 +346,7 @@ public class HomePage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    int x,y;
     private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
         pane1.setBackground(paneClick);
         pane2.setBackground(panedefault);
@@ -385,6 +402,19 @@ public class HomePage extends javax.swing.JFrame {
         Refunds vmt= new Refunds();
         jDesktopPane1.add(vmt).setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jPanel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseDragged
+        // TODO add your handling code here:
+        int xx = evt.getXOnScreen();
+        int yy = evt.getYOnScreen();
+        this.setLocation(xx-x,yy-y);
+        
+    }//GEN-LAST:event_jPanel4MouseDragged
+
+    private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_jPanel4MousePressed
 
     /**
      * @param args the command line arguments

@@ -15,6 +15,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public final class DBManager {
+    
+    //Let the database expot into a file and then upload to github and modify the code and specify a path to read the digital database
+    //Dynamically generate the database when the code runs
 
     private static final String USER_NAME = "tempotickets"; //your DB username
     private static final String PASSWORD = "pdc"; //your DB password
