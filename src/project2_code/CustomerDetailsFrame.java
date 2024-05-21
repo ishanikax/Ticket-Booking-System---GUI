@@ -4,7 +4,9 @@
  */
 package project2_code;
 
+import com.sun.jdi.connect.spi.Connection;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import org.apache.derby.iapi.sql.PreparedStatement;
 
 /**
  *
@@ -37,13 +39,13 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        firstName = new javax.swing.JTextField();
+        firstNameTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         lastName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         phoneNumber = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        emailAdd = new javax.swing.JTextField();
+        emailAddress = new javax.swing.JTextField();
 
         panel1.setBackground(new java.awt.Color(249, 234, 225));
         panel1.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
@@ -61,8 +63,13 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("First Name");
 
-        firstName.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
-        firstName.setForeground(new java.awt.Color(0, 0, 0));
+        firstNameTextField.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
+        firstNameTextField.setForeground(new java.awt.Color(0, 0, 0));
+        firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -82,8 +89,8 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Email Address");
 
-        emailAdd.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
-        emailAdd.setForeground(new java.awt.Color(0, 0, 0));
+        emailAddress.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
+        emailAddress.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -97,14 +104,14 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(firstName, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(firstNameTextField, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(jLabel5))
                 .addGap(33, 33, 33)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6)
                     .addComponent(jLabel4)
                     .addComponent(lastName)
-                    .addComponent(emailAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                    .addComponent(emailAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                 .addContainerGap(180, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -120,7 +127,7 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +136,7 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(289, Short.MAX_VALUE))
         );
 
@@ -147,10 +154,14 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
+        
+    }//GEN-LAST:event_firstNameTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField emailAdd;
-    private javax.swing.JTextField firstName;
+    private javax.swing.JTextField emailAddress;
+    private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

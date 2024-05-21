@@ -27,6 +27,8 @@ public class BookingFrame extends javax.swing.JInternalFrame {
         jDesktopPane2.add(mb).setVisible(true);
         
         
+        
+        
     }
 
     /**
@@ -73,11 +75,11 @@ public class BookingFrame extends javax.swing.JInternalFrame {
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGap(0, 525, Short.MAX_VALUE)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGap(0, 451, Short.MAX_VALUE)
         );
 
         jButton1.setBackground(new java.awt.Color(170, 153, 143));
@@ -107,7 +109,7 @@ public class BookingFrame extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
                             .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
+                        .addGap(55, 55, 55)
                         .addComponent(jLabel4)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
@@ -126,7 +128,7 @@ public class BookingFrame extends javax.swing.JInternalFrame {
                         .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
-                        .addContainerGap(41, Short.MAX_VALUE))
+                        .addContainerGap(70, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
@@ -153,12 +155,22 @@ public class BookingFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jDesktopPane2MousePressed
-
+    private boolean isTicketCalculationFrameShown = false;
+    
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
-        // TODO add your handling code here:
+
         jDesktopPane2.removeAll();
-        TicketCalculationFrame tcf= new TicketCalculationFrame();
-        jDesktopPane2.add(tcf).setVisible(true);
+   
+        if (!isTicketCalculationFrameShown) {
+            TicketCalculationFrame tcf = new TicketCalculationFrame();
+            jDesktopPane2.add(tcf).setVisible(true);
+            isTicketCalculationFrameShown = true; 
+        } else {
+            PaymentProcessFrame ppf = new PaymentProcessFrame();
+            jDesktopPane2.add(ppf).setVisible(true);
+            isTicketCalculationFrameShown = false; 
+    }
+
     }//GEN-LAST:event_jButton1MousePressed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
