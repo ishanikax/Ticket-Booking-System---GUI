@@ -15,6 +15,9 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form TicketCalculationFrame
      */
+    
+    TICKETS tickets = new TICKETS();
+    
     public TicketCalculationFrame() {
         initComponents();
         
@@ -48,6 +51,8 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         totalCostDisplay = new java.awt.TextArea();
         panel3 = new java.awt.Panel();
         ticketPriceDisplay = new java.awt.TextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(540, 480));
 
@@ -127,6 +132,15 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
             .addComponent(ticketPriceDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jLabel8.setFont(new java.awt.Font("Georgia", 2, 10)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Please press \"add details\" before pressing continue");
+
+        jButton1.setBackground(new java.awt.Color(170, 153, 143));
+        jButton1.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("add details");
+
         javax.swing.GroupLayout inputNumberOfTicketsLayout = new javax.swing.GroupLayout(inputNumberOfTickets);
         inputNumberOfTickets.setLayout(inputNumberOfTicketsLayout);
         inputNumberOfTicketsLayout.setHorizontalGroup(
@@ -148,11 +162,19 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(ticketype, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(panel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(42, 42, 42)
                 .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                    .addGroup(inputNumberOfTicketsLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(11, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputNumberOfTicketsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(jLabel8))
+                        .addGap(31, 31, 31))))
         );
         inputNumberOfTicketsLayout.setVerticalGroup(
             inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,9 +203,13 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel7)
+                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton1)
+                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton1)
+                    .addComponent(jButton1))
                 .addGap(132, 132, 132))
         );
 
@@ -195,16 +221,18 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(inputNumberOfTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 476, Short.MAX_VALUE)
+            .addComponent(inputNumberOfTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Need to implment representation of variables as well as calculations for cost and total cost depending on the event selected 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> events;
     private java.awt.Panel inputNumberOfTickets;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -212,6 +240,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     private java.awt.Panel panel2;
