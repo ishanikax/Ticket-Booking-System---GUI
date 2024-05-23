@@ -4,7 +4,11 @@
  */
 package project2_code;
 
+import com.sun.jdi.connect.spi.Connection;
+import java.util.Random;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import org.apache.derby.iapi.sql.PreparedStatement;
 
 /**
  *
@@ -18,6 +22,17 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     
     TICKETS tickets = new TICKETS();
     
+    int ticketCost = 0;
+    
+    private double finalPrice;
+    
+    
+    double theTerrysPrice = 50.85;
+    double dylanPrice = 44.99;
+    double soulBossaDuoPrice = 20.00;
+    double pinkPeppersPrice = 12.00;
+    
+
     public TicketCalculationFrame() {
         initComponents();
         
@@ -43,20 +58,22 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         ticketype = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        numOfTickets = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel7 = new javax.swing.JLabel();
-        panel2 = new java.awt.Panel();
-        totalCostDisplay = new java.awt.TextArea();
-        panel3 = new java.awt.Panel();
-        ticketPriceDisplay = new java.awt.TextArea();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        textField1 = new java.awt.TextField();
+        ticketPriceDisplay = new java.awt.TextField();
+        textField2 = new java.awt.TextField();
+        totalCostDisplay = new java.awt.TextField();
 
         setPreferredSize(new java.awt.Dimension(540, 480));
 
         inputNumberOfTickets.setBackground(new java.awt.Color(249, 234, 225));
+        inputNumberOfTickets.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -80,16 +97,16 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         ticketype.setForeground(new java.awt.Color(0, 0, 0));
         ticketype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard Ticket", "Special Ticket (Wheelchair Access)", "" }));
 
-        jLabel4.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Georgia", 2, 8)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Ticket Price Display");
+        jLabel4.setText("Click the button below to display individual ticket price");
 
         jLabel5.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Enter Number of Tickets");
 
-        jTextField1.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        numOfTickets.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
+        numOfTickets.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel6.setFont(new java.awt.Font("Georgia", 3, 10)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -99,38 +116,15 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         jToggleButton1.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
         jToggleButton1.setText("next");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jToggleButton1MousePressed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Georgia", 2, 10)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Please press \"next\" to display Total Cost");
-
-        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
-        panel2.setLayout(panel2Layout);
-        panel2Layout.setHorizontalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addComponent(totalCostDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panel2Layout.setVerticalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addComponent(totalCostDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
-        panel3.setLayout(panel3Layout);
-        panel3Layout.setHorizontalGroup(
-            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel3Layout.createSequentialGroup()
-                .addComponent(ticketPriceDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panel3Layout.setVerticalGroup(
-            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ticketPriceDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
 
         jLabel8.setFont(new java.awt.Font("Georgia", 2, 10)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -140,6 +134,34 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("add details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(170, 153, 143));
+        jButton2.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Ticket Price");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+        });
+
+        textField1.setText("textField1");
+
+        ticketPriceDisplay.setFont(new java.awt.Font("Georgia", 1, 10)); // NOI18N
+
+        textField2.setText("textField2");
+
+        totalCostDisplay.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+        totalCostDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalCostDisplayActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout inputNumberOfTicketsLayout = new javax.swing.GroupLayout(inputNumberOfTickets);
         inputNumberOfTickets.setLayout(inputNumberOfTicketsLayout);
@@ -152,29 +174,23 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                     .addComponent(events, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jLabel7)
                         .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ticketype, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(inputNumberOfTicketsLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(11, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputNumberOfTicketsLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel8))
-                        .addGap(31, 31, 31))))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(numOfTickets, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ticketype, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ticketPriceDisplay, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(43, 43, 43)
+                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(totalCostDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         inputNumberOfTicketsLayout.setVerticalGroup(
             inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,34 +198,36 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6))
+                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(inputNumberOfTicketsLayout.createSequentialGroup()
                         .addComponent(events, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(25, 25, 25)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ticketype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                        .addComponent(ticketype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(totalCostDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel8))
+                .addGap(19, 19, 19)
+                .addGroup(inputNumberOfTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ticketPriceDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(numOfTickets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButton1)
                 .addGap(132, 132, 132))
         );
 
@@ -221,11 +239,95 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(inputNumberOfTickets, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(inputNumberOfTickets, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        
+        String selectedEvent = (String) events.getSelectedItem();
+        String selectedTicketType = (String) ticketype.getSelectedItem();
+    
+        double price = 0.0;
+    
+        if (selectedTicketType.equals("Standard Ticket")) {
+            switch (selectedEvent) {
+                case "The Terrys":
+                    price = theTerrysPrice;
+                    break;
+                case "Soul Bossa Duo":
+                    price = soulBossaDuoPrice;
+                    break;
+                case "Dylan":
+                    price = dylanPrice;
+                    break;
+                case "Pink Peppers":
+                    price = pinkPeppersPrice;
+                    break;
+            }
+        } else if (selectedTicketType.equals("Special Ticket (Wheelchair Access)")) {
+            switch (selectedEvent) {
+                case "The Terrys":
+                    price = theTerrysPrice + 10.0;
+                    break;
+                case "Soul Bossa Duo":
+                    price = soulBossaDuoPrice + 10.0;
+                    break;
+                case "Dylan":
+                    price = dylanPrice + 10.0;
+                    break;
+                case "Pink Peppers":
+                    price = pinkPeppersPrice + 10.0;
+                    break;
+            }
+        }
+        
+
+        ticketPriceDisplay.setText("Individual Ticket Price: $" + price);
+        
+        finalPrice = price;
+        
+
+        
+    }//GEN-LAST:event_jButton2MousePressed
+
+    private void jToggleButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MousePressed
+        int numOfTicketsField = Integer.parseInt(numOfTickets.getText());
+        double totalCost = finalPrice * numOfTicketsField;
+        totalCostDisplay.setText("Total Cost: $" + totalCost);
+        
+    }//GEN-LAST:event_jToggleButton1MousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Need to Fix Error Here so that it adds to the database for events and ticket_type
+        String event = (String) events.getSelectedItem();   
+        String ticket_type = (String) ticketype.getSelectedItem();
+        String price = ticketPriceDisplay.getText();
+        String ticket_amount = numOfTickets.getText();
+        String total_cost = totalCostDisplay.getText();
+        
+        if (event.isEmpty() || ticket_type.isEmpty() || ticket_amount.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter s value in all the boxes.", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+    
+        
+        if(event.trim().equals("") || ticket_type.trim().equals("") || ticket_amount.trim().equals("")) {
+        JOptionPane.showMessageDialog(rootPane, "Required Fields -> Event + Ticket Type + Number of Tickets", "Empty Fields", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            if (tickets.addTickets(ticket_type, price, ticket_amount, total_cost,event )) {
+                JOptionPane.showMessageDialog(rootPane, "New User Added Successfully", "Add User", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "User Added Successfully", "Add User Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void totalCostDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCostDisplayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalCostDisplayActionPerformed
 
     //Need to implment representation of variables as well as calculations for cost and total cost depending on the event selected 
 
@@ -233,6 +335,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> events;
     private java.awt.Panel inputNumberOfTickets;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -241,12 +344,12 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
-    private java.awt.Panel panel2;
-    private java.awt.Panel panel3;
-    private java.awt.TextArea ticketPriceDisplay;
+    private javax.swing.JTextField numOfTickets;
+    private java.awt.TextField textField1;
+    private java.awt.TextField textField2;
+    private java.awt.TextField ticketPriceDisplay;
     private javax.swing.JComboBox<String> ticketype;
-    private java.awt.TextArea totalCostDisplay;
+    private java.awt.TextField totalCostDisplay;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,19 +19,21 @@ public class TICKETS {
     
     DBManager dbManager = new DBManager();
     
-    public boolean addUser(String ticket_type, String ticket_amount, String price, String total_cost) {
+    public boolean addTickets(String ticket_type, String ticket_amount, String price, String total_cost, String event) {
         
         PreparedStatement ps;
         ResultSet rs;
-        String addQuery = "INSERT INTO USERS(TICKET_TYPE, AMOUNT_OF_TICKETS, PRICE, TOTAL_COST)VALUES(?,?,?,?)";
+        String addQuery = "INSERT INTO USERS(TICKET_TYPE, AMOUNT_OF_TICKETS, PRICE, TOTAL_COST, EVENT)VALUES(?,?,?,?,?)";
         
         try {
             ps = (PreparedStatement) dbManager.getConnection().prepareCall(addQuery);
+            
             
             ps.setString(1,ticket_type);
             ps.setString(2, ticket_amount);
             ps.setString(3,price);
             ps.setString(4, total_cost);
+            ps.setString(5,event);
             
             if(ps.executeUpdate() > 0) {
                 return true;
@@ -39,7 +41,7 @@ public class TICKETS {
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(USERS.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TICKETS.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
            

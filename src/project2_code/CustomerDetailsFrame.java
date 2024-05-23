@@ -188,7 +188,7 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_firstNameActionPerformed
 
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
-        // TODO add your handling code here:
+
         String fname = firstName.getText();
         String lname = lastName.getText();
         String email = emailAddress.getText();
@@ -213,7 +213,6 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "User Added Successfully", "Add User Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        
         
         
     }//GEN-LAST:event_jButton1MousePressed
