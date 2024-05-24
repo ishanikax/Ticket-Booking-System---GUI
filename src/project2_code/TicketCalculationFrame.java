@@ -19,25 +19,23 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form TicketCalculationFrame
      */
-    
     TICKETS tickets = new TICKETS();
-    
+
+
     int ticketCost = 0;
-    
+
     private double finalPrice;
-    
-    
+
     double theTerrysPrice = 50.85;
     double dylanPrice = 44.99;
     double soulBossaDuoPrice = 20.00;
     double pinkPeppersPrice = 12.00;
-    
 
     public TicketCalculationFrame() {
         initComponents();
-        
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
-        BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
         bi.setNorthPane(null);
     }
 
@@ -246,12 +244,12 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
-        
+
         String selectedEvent = (String) events.getSelectedItem();
         String selectedTicketType = (String) ticketype.getSelectedItem();
-    
+
         double price = 0.0;
-    
+
         if (selectedTicketType.equals("Standard Ticket")) {
             switch (selectedEvent) {
                 case "The Terrys":
@@ -283,41 +281,37 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                     break;
             }
         }
-        
 
         ticketPriceDisplay.setText("Individual Ticket Price: $" + price);
-        
-        finalPrice = price;
-        
 
-        
+        finalPrice = price;
+
+
     }//GEN-LAST:event_jButton2MousePressed
 
     private void jToggleButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MousePressed
         int numOfTicketsField = Integer.parseInt(numOfTickets.getText());
         double totalCost = finalPrice * numOfTicketsField;
         totalCostDisplay.setText("Total Cost: $" + totalCost);
-        
+
     }//GEN-LAST:event_jToggleButton1MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Need to Fix Error Here so that it adds to the database for events and ticket_type
-        String event = (String) events.getSelectedItem();   
+        String event = (String) events.getSelectedItem();
         String ticket_type = (String) ticketype.getSelectedItem();
         String price = ticketPriceDisplay.getText();
         String ticket_amount = numOfTickets.getText();
         String total_cost = totalCostDisplay.getText();
-        
+
         if (event.isEmpty() || ticket_type.isEmpty() || ticket_amount.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter s value in all the boxes.", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
-    
-        
-        if(event.trim().equals("") || ticket_type.trim().equals("") || ticket_amount.trim().equals("")) {
-        JOptionPane.showMessageDialog(rootPane, "Required Fields -> Event + Ticket Type + Number of Tickets", "Empty Fields", JOptionPane.INFORMATION_MESSAGE);
+
+        if (event.trim().equals("") || ticket_type.trim().equals("") || ticket_amount.trim().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Required Fields -> Event + Ticket Type + Number of Tickets", "Empty Fields", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            if (tickets.addTickets(ticket_type, price, ticket_amount, total_cost,event )) {
+            if (tickets.addTickets(ticket_type, price, ticket_amount, total_cost, event)) {
                 JOptionPane.showMessageDialog(rootPane, "New User Added Successfully", "Add User", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "User Added Successfully", "Add User Error", JOptionPane.ERROR_MESSAGE);
@@ -352,4 +346,5 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> ticketype;
     private java.awt.TextField totalCostDisplay;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -14,26 +14,26 @@ import java.util.logging.Logger;
  *
  * @author Ishanika
  */
-public class TICKETS {
-
+public class PAYMENT {
     
     DBManager dbManager = new DBManager();
     
-    public boolean addTickets(String ticket_type, String ticket_amount, String price, String total_cost, String event) {
+    public boolean addPayment(String total_cost,String book_ref_no, String bank_acc_num, String cvc, String name_on_card, String amount_of_tickets) {
         
         PreparedStatement ps;
         ResultSet rs;
-        String addQuery = "INSERT INTO TICKETS(TICKET_TYPE, AMOUNT_OF_TICKETS, PRICE, TOTAL_COST, EVENT)VALUES(?,?,?,?,?)";
+        String addQuery = "INSERT INTO PAYMENT(TOTAL_COST, BOOK_REF_NO, BANK_ACCOUNT_NUMBER, CVC, NAME_ON_CARD, AMOUNT_OF_TICKETS)VALUES(?,?,?,?,?,?)";
         
         try {
             ps = (PreparedStatement) dbManager.getConnection().prepareCall(addQuery);
             
             
-            ps.setString(1,ticket_type);
-            ps.setString(2, ticket_amount);
-            ps.setString(3,price);
-            ps.setString(4, total_cost);
-            ps.setString(5,event);
+            ps.setString(1,total_cost);
+            ps.setString(2, book_ref_no);
+            ps.setString(3,bank_acc_num);
+            ps.setString(4, cvc);
+            ps.setString(5,name_on_card);
+            ps.setString(6, amount_of_tickets);
             
             if(ps.executeUpdate() > 0) {
                 return true;
@@ -48,6 +48,5 @@ public class TICKETS {
         
     }
     
-}
     
-
+}
