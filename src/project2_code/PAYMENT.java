@@ -18,22 +18,20 @@ public class PAYMENT {
     
     DBManager dbManager = new DBManager();
     
-    public boolean addPayment(String total_cost,String book_ref_no, String bank_acc_num, String cvc, String name_on_card, String amount_of_tickets) {
+    public boolean addPayment(String book_ref_no, String bank_acc_num, String cvc, String name_on_card, String amount_of_tickets) {
         
         PreparedStatement ps;
         ResultSet rs;
-        String addQuery = "INSERT INTO PAYMENT(TOTAL_COST, BOOK_REF_NO, BANK_ACCOUNT_NUMBER, CVC, NAME_ON_CARD, AMOUNT_OF_TICKETS)VALUES(?,?,?,?,?,?)";
+        String addQuery = "INSERT INTO PAYMENT( BOOK_REF_NO, BANK_ACCOUNT_NUMBER, CVC, NAME_ON_CARD)VALUES(?,?,?,?)";
         
         try {
             ps = (PreparedStatement) dbManager.getConnection().prepareCall(addQuery);
             
             
-            ps.setString(1,total_cost);
-            ps.setString(2, book_ref_no);
-            ps.setString(3,bank_acc_num);
-            ps.setString(4, cvc);
-            ps.setString(5,name_on_card);
-            ps.setString(6, amount_of_tickets);
+            ps.setString(1, book_ref_no);
+            ps.setString(2,bank_acc_num);
+            ps.setString(3, cvc);
+            ps.setString(4,name_on_card);
             
             if(ps.executeUpdate() > 0) {
                 return true;
@@ -41,7 +39,7 @@ public class PAYMENT {
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TICKETS.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PAYMENT.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
            

@@ -57,6 +57,7 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
         panel1.setBackground(new java.awt.Color(249, 234, 225));
         panel1.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         panel1.setForeground(new java.awt.Color(255, 255, 255));
+        panel1.setPreferredSize(new java.awt.Dimension(600, 444));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -216,7 +217,13 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jButton1MousePressed
+    public String getFirstName() {
+        return firstName.getText();
+    }
 
+    public String getLastName() {
+        return lastName.getText();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailAddress;
