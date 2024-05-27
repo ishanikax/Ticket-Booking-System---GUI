@@ -64,6 +64,7 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         bookref = new java.awt.TextField();
         finalInvoice = new java.awt.TextArea();
+        jLabel12 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(528, 466));
 
@@ -150,8 +151,13 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
         jLabel11.setText("Booking Reference Number");
 
         bookref.setFont(new java.awt.Font("Georgia", 0, 10)); // NOI18N
+        bookref.setEditable(false);
 
         finalInvoice.setFont(new java.awt.Font("Georgia", 0, 8)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Georgia", 2, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("(please note down this number)");
 
         javax.swing.GroupLayout bookrefnumLayout = new javax.swing.GroupLayout(bookrefnum);
         bookrefnum.setLayout(bookrefnumLayout);
@@ -187,7 +193,8 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
                                 .addComponent(finalInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9)
                                 .addComponent(jLabel11)
-                                .addComponent(bookref, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(bookref, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         bookrefnumLayout.setVerticalGroup(
@@ -215,7 +222,9 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
+                .addGroup(bookrefnumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bookrefnumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cvc_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +241,7 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -310,6 +319,7 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

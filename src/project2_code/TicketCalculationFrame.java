@@ -152,6 +152,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         textField1.setText("textField1");
 
         ticketPriceDisplay.setFont(new java.awt.Font("Georgia", 1, 10)); // NOI18N
+        ticketPriceDisplay.setEditable(false);
 
         textField2.setText("textField2");
 
@@ -161,6 +162,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                 totalCostDisplayActionPerformed(evt);
             }
         });
+        totalCostDisplay.setEditable(false);
 
         javax.swing.GroupLayout inputNumberOfTicketsLayout = new javax.swing.GroupLayout(inputNumberOfTickets);
         inputNumberOfTickets.setLayout(inputNumberOfTicketsLayout);

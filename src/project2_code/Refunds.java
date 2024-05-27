@@ -21,6 +21,11 @@ public class Refunds extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
+
+        
+        jDesktopPaneRefunds.removeAll();
+        RefundFrame mb= new RefundFrame();
+        jDesktopPaneRefunds.add(mb).setVisible(true);
     }
 
     /**
@@ -35,7 +40,7 @@ public class Refunds extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
-        jDesktopPane = new javax.swing.JDesktopPane();
+        jDesktopPaneRefunds = new javax.swing.JDesktopPane();
 
         setBackground(new java.awt.Color(245, 245, 245));
 
@@ -45,14 +50,14 @@ public class Refunds extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(125, 79, 80));
         jLabel1.setText("Refunds");
 
-        javax.swing.GroupLayout jDesktopPaneLayout = new javax.swing.GroupLayout(jDesktopPane);
-        jDesktopPane.setLayout(jDesktopPaneLayout);
-        jDesktopPaneLayout.setHorizontalGroup(
-            jDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPaneRefundsLayout = new javax.swing.GroupLayout(jDesktopPaneRefunds);
+        jDesktopPaneRefunds.setLayout(jDesktopPaneRefundsLayout);
+        jDesktopPaneRefundsLayout.setHorizontalGroup(
+            jDesktopPaneRefundsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 753, Short.MAX_VALUE)
         );
-        jDesktopPaneLayout.setVerticalGroup(
-            jDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDesktopPaneRefundsLayout.setVerticalGroup(
+            jDesktopPaneRefundsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 524, Short.MAX_VALUE)
         );
 
@@ -62,12 +67,12 @@ public class Refunds extends javax.swing.JInternalFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane)
+                .addComponent(jDesktopPaneRefunds)
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane)
+            .addComponent(jDesktopPaneRefunds)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -110,7 +115,7 @@ public class Refunds extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane;
+    private javax.swing.JDesktopPane jDesktopPaneRefunds;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private java.awt.Panel panel1;
