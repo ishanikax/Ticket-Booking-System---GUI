@@ -35,7 +35,7 @@ public class HomePage extends javax.swing.JFrame {
         pane1.setBackground(panedefault);
         pane2.setBackground(panedefault);
         pane3.setBackground(panedefault);
-        pane4.setBackground(panedefault);
+
         
         HomePageFrame hp = new HomePageFrame();
         jDesktopPane1.add(hp).setVisible(true);
@@ -68,9 +68,6 @@ public class HomePage extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         pane3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        pane4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -162,7 +159,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(pane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,53 +215,6 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel10.setBackground(new java.awt.Color(229, 207, 194));
-        jPanel10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel10MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pane4Layout = new javax.swing.GroupLayout(pane4);
-        pane4.setLayout(pane4Layout);
-        pane4Layout.setHorizontalGroup(
-            pane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-        pane4Layout.setVerticalGroup(
-            pane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jLabel5.setFont(new java.awt.Font("Garamond", 1, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(125, 79, 80));
-        jLabel5.setText("Refunds");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pane4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -274,8 +224,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,9 +235,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addContainerGap(531, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 50, 190, 730));
@@ -351,7 +298,7 @@ public class HomePage extends javax.swing.JFrame {
         pane1.setBackground(paneClick);
         pane2.setBackground(panedefault);
         pane3.setBackground(panedefault);
-        pane4.setBackground(panedefault);
+
 
     }//GEN-LAST:event_jPanel3MousePressed
 
@@ -359,22 +306,15 @@ public class HomePage extends javax.swing.JFrame {
         pane2.setBackground(paneClick);
         pane1.setBackground(panedefault);
         pane3.setBackground(panedefault);
-        pane4.setBackground(panedefault);
+
     }//GEN-LAST:event_jPanel6MousePressed
 
     private void jPanel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MousePressed
         pane3.setBackground(paneClick);
         pane1.setBackground(panedefault);
         pane2.setBackground(panedefault);
-        pane4.setBackground(panedefault);
-    }//GEN-LAST:event_jPanel8MousePressed
 
-    private void jPanel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MousePressed
-        pane4.setBackground(paneClick);
-        pane1.setBackground(panedefault);
-        pane3.setBackground(panedefault);
-        pane2.setBackground(panedefault);
-    }//GEN-LAST:event_jPanel10MousePressed
+    }//GEN-LAST:event_jPanel8MousePressed
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         jDesktopPane1.removeAll();
@@ -396,12 +336,6 @@ public class HomePage extends javax.swing.JFrame {
         jDesktopPane1.add(mb).setVisible(true);
         
     }//GEN-LAST:event_jPanel8MouseClicked
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        jDesktopPane1.removeAll();
-        Refunds vmt= new Refunds();
-        jDesktopPane1.add(vmt).setVisible(true);
-    }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jPanel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseDragged
         // TODO add your handling code here:
@@ -459,9 +393,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -470,7 +402,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel pane1;
     private javax.swing.JPanel pane2;
     private javax.swing.JPanel pane3;
-    private javax.swing.JPanel pane4;
     // End of variables declaration//GEN-END:variables
 }
 

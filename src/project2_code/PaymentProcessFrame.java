@@ -294,9 +294,15 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "CVC must be 3 characters long. Please try again.", "Invalid CVC", JOptionPane.ERROR_MESSAGE);
                 return; // Exit the method
             }
+            
+            //Check if the email contains an "@" symbol
+            if (!expiry.contains("/")) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid expiry date (must be in MM/YY format).", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return; //Exit the method
+        }
 
             if (payment.addPayment(bank_acc_num, name_on_card, cvc, expiry, booking_ref_no)) {
-                JOptionPane.showMessageDialog(rootPane, "New Payment Added Successfully", "Add Payment", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Payment Successfull!\n See you at the event!", "Add Payment", JOptionPane.INFORMATION_MESSAGE);
 
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Payment Successful", "Add Payment Error", JOptionPane.ERROR_MESSAGE);

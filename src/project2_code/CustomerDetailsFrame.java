@@ -200,8 +200,13 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
             return; 
         }
     
-        if (!phone.matches("\\d+")) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid phone number (10 digits only, Must be integers).", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        if (!phone.matches("\\d{10}")) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid phone number (exactly 10 digits, Must be integers).", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        if (!email.contains("@")) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email address (must contain '@' symbol).", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return; 
         }
         
@@ -209,7 +214,7 @@ public class CustomerDetailsFrame extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(rootPane, "Required Fields -> First/Last Name + Phone Number", "Empty Fields", JOptionPane.INFORMATION_MESSAGE);
         } else {
             if (user.addUser(fname, lname, phone, email)) {
-                JOptionPane.showMessageDialog(rootPane, "New User Added Successfully", "Add User", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Details Added Successfully", "Add User", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "User Added Successfully", "Add User Error", JOptionPane.ERROR_MESSAGE);
             }

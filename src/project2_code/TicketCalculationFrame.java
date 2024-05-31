@@ -315,7 +315,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Required Fields -> Event + Ticket Type + Number of Tickets", "Empty Fields", JOptionPane.INFORMATION_MESSAGE);
         } else {
             if (tickets.addTickets(ticket_type, price, ticket_amount, total_cost, event)) {
-                JOptionPane.showMessageDialog(rootPane, "New Ticket Added Successfully", "Add Ticket", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Ticket Selection Successful", "Add Ticket", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Ticket Added Successfully", "Add Ticket Error", JOptionPane.ERROR_MESSAGE);
             }
