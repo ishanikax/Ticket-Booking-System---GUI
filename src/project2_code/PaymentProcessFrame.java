@@ -301,7 +301,7 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
                 return; // Exit the method
             }
             
-            //Check if the email contains an "@" symbol.
+            //Check if the expiry has a /.
             if (!expiry.contains("/")) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid expiry date (must be in MM/YY format).", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
                 return; //Exit the method

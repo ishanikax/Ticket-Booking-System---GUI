@@ -17,7 +17,7 @@ import java.sql.Statement;
 public final class DBManager {
     //This class manages the database connection.
     
-    //Let the database expot into a file and then upload to github and modify the code and specify a path to read the digital database
+    //Let the database export into a file and then upload to github and modify the code and specify a path to read the digital database
     //Dynamically generate the database when the code runs
 
     //Database credentials and URL.
