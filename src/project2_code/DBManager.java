@@ -15,25 +15,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public final class DBManager {
+    //This class manages the database connection.
     
     //Let the database expot into a file and then upload to github and modify the code and specify a path to read the digital database
     //Dynamically generate the database when the code runs
 
+    //Database credentials and URL.
     private static final String USER_NAME = "tempotickets"; //your DB username
     private static final String PASSWORD = "pdc"; //your DB password
     private static final String URL = "jdbc:derby://localhost:1527/TempoTicketsDB";  //url of the DB host
 
+    //Connection object.
     Connection conn;
 
+    //Constructor to establish the connection.
     public DBManager() {
         establishConnection();
     }
 
+    //Main method to test the connection.
     public static void main(String[] args) {
         DBManager dbManager = new DBManager();
         System.out.println(dbManager.getConnection());
     }
 
+    //Method to get the connection.
     public Connection getConnection() {
         return this.conn;
     }
@@ -50,7 +56,7 @@ public final class DBManager {
         }
     }
 
-             
+    //Method to close the connection.      
     public void closeConnections() {
         if (conn != null) {
             try {
@@ -61,6 +67,7 @@ public final class DBManager {
         }
     }
 
+    //Method to execute the SQL query.
     public ResultSet queryDB(String sql) {
 
         Connection connection = this.conn;
@@ -77,6 +84,7 @@ public final class DBManager {
         return resultSet;
     }
 
+    //Method to execute a SQL update statement.
     public void updateDB(String sql) {
 
         Connection connection = this.conn;

@@ -18,8 +18,11 @@ public class UpcomingEventsFrame extends javax.swing.JInternalFrame {
     public UpcomingEventsFrame() {
         initComponents();
         
+        // Set the border of the frame to an empty border.
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        // Getting the UI component for this frame.
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+        // Removing the north pane from the frame
         bi.setNorthPane(null);
     }
 

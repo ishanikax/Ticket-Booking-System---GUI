@@ -260,6 +260,7 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
 
  
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        //This generates the final invoice text that will show up in the box once the user selects next.
         finalInvoice.setText("\n********Confirmation Email********" +
                "\nThis exact message will be sent via \nemail as a confirmation for \nbooking with Tempo Tickets" +
                 "\nThank you for you booking \nwith Tempo Tickets" +
@@ -282,20 +283,25 @@ public class PaymentProcessFrame extends javax.swing.JInternalFrame {
 
         if (bank_acc_num.trim().equals("") || name_on_card.trim().equals("") || bank_acc_num.trim().equals("") || cvc.trim().equals("") || expiry.trim().equals("") || booking_ref_no.trim().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Required Fields -> bank acc num + full name + cvc + expiry + booking ref number", "Empty Fields", JOptionPane.INFORMATION_MESSAGE);
+            
+        if (bank_acc_num.isEmpty() || name_on_card.isEmpty() || cvc.isEmpty() || expiry.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter details in all the boxes.", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         } else {
-            // Check if bank account number has 16 characters
+            // Check if bank account number has 16 characters.
             if (bank_acc_num.length() != 16) {
                 JOptionPane.showMessageDialog(rootPane, "Bank account number must be 16 characters long. Please try again.", "Invalid Bank Account Number", JOptionPane.ERROR_MESSAGE);
                 return; // Exit the method
             }
 
-            // Check if cvc has 3 characters
+            // Check if cvc has 3 characters.
             if (cvc.length() != 3) {
                 JOptionPane.showMessageDialog(rootPane, "CVC must be 3 characters long. Please try again.", "Invalid CVC", JOptionPane.ERROR_MESSAGE);
                 return; // Exit the method
             }
             
-            //Check if the email contains an "@" symbol
+            //Check if the email contains an "@" symbol.
             if (!expiry.contains("/")) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid expiry date (must be in MM/YY format).", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
                 return; //Exit the method

@@ -17,15 +17,21 @@ import java.util.logging.Logger;
 public class TICKETS {
 
     
+    // Create a DBManager instance to handle database operations.
     DBManager dbManager = new DBManager();
     
     public boolean addTickets(String ticket_type, String ticket_amount, String price, String total_cost, String event) {
         
+        // Prepared statement and result set objects.
         PreparedStatement ps;
         ResultSet rs;
+        
+        // SQL query to insert ticket into the database.
+        // This query will add a new row to the TICKETS table with the provided values.
         String addQuery = "INSERT INTO TICKETS(TICKET_TYPE, AMOUNT_OF_TICKETS, PRICE, TOTAL_COST, EVENT)VALUES(?,?,?,?,?)";
         
         try {
+            // This will set the values of the query parameters to the provided values.
             ps = (PreparedStatement) dbManager.getConnection().prepareCall(addQuery);
             
             
@@ -35,12 +41,14 @@ public class TICKETS {
             ps.setString(4, total_cost);
             ps.setString(5,event);
             
+            // This will execute the query and return the number of rows affected.
             if(ps.executeUpdate() > 0) {
                 return true;
             } else {
                 return false;
             }
         } catch (SQLException ex) {
+            // This will log the error and return false if an exception occurs during query execution.
             Logger.getLogger(TICKETS.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }

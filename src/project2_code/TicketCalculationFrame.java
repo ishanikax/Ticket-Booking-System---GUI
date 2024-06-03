@@ -19,18 +19,23 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form TicketCalculationFrame
      */
+    // Create a new instance of the TICKETS class.
     TICKETS tickets = new TICKETS();
 
 
+    // Initialize ticket cost to 0.
     int ticketCost = 0;
 
+    // Declare a variable to store the final price.
     private double finalPrice;
 
+    // Define prices for each event.
     double theTerrysPrice = 50.85;
     double dylanPrice = 44.99;
     double soulBossaDuoPrice = 20.00;
     double pinkPeppersPrice = 12.00;
 
+    // Constructor for TicketCalculationFrame.
     public TicketCalculationFrame() {
         initComponents();
 
@@ -248,12 +253,16 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
 
     private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
 
+        // Get the selected event and ticket type from the dropdown menus.
         String selectedEvent = (String) events.getSelectedItem();
         String selectedTicketType = (String) ticketype.getSelectedItem();
 
+        // Initialize price to 0.0.
         double price = 0.0;
 
+        // Check if the selected ticket type is "Standard Ticket".
         if (selectedTicketType.equals("Standard Ticket")) {
+            // Using a switch statement to set the price based on the selected event.
             switch (selectedEvent) {
                 case "The Terrys":
                     price = theTerrysPrice;
@@ -268,7 +277,9 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
                     price = pinkPeppersPrice;
                     break;
             }
+            // Checking if the selected ticket type is "Special Ticket (Wheelchair Access)".
         } else if (selectedTicketType.equals("Special Ticket (Wheelchair Access)")) {
+            // Using a switch statement to set the price based on the selected event, with an additional $10 for wheelchair access.
             switch (selectedEvent) {
                 case "The Terrys":
                     price = theTerrysPrice + 10.0;
@@ -285,21 +296,27 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
             }
         }
 
+        // Displaying the individual ticket price in the ticketPriceDisplay label.
         ticketPriceDisplay.setText("Individual Ticket Price: $" + price);
 
+        // Setting the final price to the calculated price.
         finalPrice = price;
 
 
     }//GEN-LAST:event_jButton2MousePressed
 
     private void jToggleButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MousePressed
+        // Getting the number of tickets from the numOfTickets field and convert it to an integer.
         int numOfTicketsField = Integer.parseInt(numOfTickets.getText());
+        // Calculating the total cost by multiplying the final price by the number of tickets.
         double totalCost = finalPrice * numOfTicketsField;
+        // Displaying the total cost in the totalCostDisplay label.
         totalCostDisplay.setText("Total Cost: $" + totalCost);
 
     }//GEN-LAST:event_jToggleButton1MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Get the selected event, ticket type, price, ticket amount, and total cost from the UI components.
         String event = (String) events.getSelectedItem();
         String ticket_type = (String) ticketype.getSelectedItem();
         String price = ticketPriceDisplay.getText();
@@ -307,7 +324,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
         String total_cost = totalCostDisplay.getText();
 
         if (event.isEmpty() || ticket_type.isEmpty() || ticket_amount.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter s value in all the boxes.", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please enter details in all the boxes.", "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -323,7 +340,7 @@ public class TicketCalculationFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void totalCostDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCostDisplayActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_totalCostDisplayActionPerformed
 
     //Need to implment representation of variables as well as calculations for cost and total cost depending on the event selected 
